@@ -16,11 +16,12 @@ const Content = () => {
         try {
             const response = await axiosApi<IMenuItem>(`/${id}.json`);
             setContent(response.data);
+            console.log(response.data);
         } finally {
-            setOpen(false)
+            setOpen(false);
         }
 
-    }, [id])
+    }, [id]);
 
     useEffect(() => {
         void fetchResponse();

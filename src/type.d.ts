@@ -4,7 +4,7 @@ export interface IMenuItem {
 }
 
 export interface IMenuUpdate {
-    [id: string]: IMenuItem
+    [category: string]: IMenuItem
 }
 
 export interface IMenu {
