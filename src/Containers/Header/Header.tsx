@@ -10,13 +10,14 @@ import './header.css';
 const Header = () => {
 
     const [menuName, setMenuName] = useState<string[]>([]);
-    const [open, setOpen] = useState<boolean>(false)
+    const [open, setOpen] = useState<boolean>(false);
 
     const getMenuList = useCallback(async () => {
         setOpen(true);
         try {
             const response = await axiosApi.get<IMenuUpdate>('.json');
             const responseT = Object.keys(response.data);
+            responseT.push('Admin');
             setMenuName(responseT);
         } finally {
             setOpen(false);
@@ -39,11 +40,14 @@ const Header = () => {
                     <Toolbar sx={{marginRight: "20px", gap: "20px"}}>
                         {menuName.map(item => {
                             return (
-                                <Box>
-                                    <NavLink to="/" className="header-link">{item}</NavLink>
+                                <Box key={item + 1}>
+                                    <NavLink key={item + 12} to={`/${item}`} className="header-link">{item}</NavLink>
                                 </Box>
                             )
                         })}
+                        <Box>
+                            <NavLink  to={`/Admin`} className="header-link">Admin</NavLink>
+                        </Box>
                     </Toolbar>
                 </Toolbar>
             </Container>
