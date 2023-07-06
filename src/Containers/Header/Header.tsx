@@ -14,15 +14,15 @@ const Header = () => {
         setOpen(true);
         try {
             const response = await axiosApi.get<IMenuUpdate>('.json');
-            const responseT = Object.keys(response.data);
-            setMenuName(responseT);
+            const responseList = Object.keys(response.data);
+            setMenuName(responseList);
         } finally {
             setOpen(false);
         }
     }, [])
 
     useEffect(() => {
-        void getMenuList()
+        void getMenuList();
     }, [getMenuList]);
 
 
@@ -37,12 +37,12 @@ const Header = () => {
                         {menuName.map(item => {
                             return (
                                 <Box key={item + 1}>
-                                    <NavLink key={item + 12} to={`/pages/${item}`} className="header-link">{item}</NavLink>
+                                    <NavLink key={item + 12} to={`/pages/${item.toLowerCase()}`} className="header-link">{item}</NavLink>
                                 </Box>
                             )
                         })}
                         <Box>
-                            <NavLink  to={`/pages/Admin`} className="header-link">Admin</NavLink>
+                            <NavLink  to={`/pages/admin`} className="header-link">Admin</NavLink>
                         </Box>
                     </Toolbar>
                 </Toolbar>

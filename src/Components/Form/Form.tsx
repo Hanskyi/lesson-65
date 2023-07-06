@@ -17,9 +17,10 @@ const Form: React.FC<Props> = (props) => {
         <>
             <FormControl fullWidth>
                 <NativeSelect
+                    defaultValue="DefoulOption"
                     onChange={props.selectChange}
                 >
-                    <option selected style={{display: 'none'}} value="DefoulOption">Выберите пункт</option>
+                    <option  style={{display: 'none'}} value="DefoulOption">Выберите пункт</option>
                     {props.menuList.map(item => {
                         return <option key={item + 1} value={item}>{item}</option>
                     })}
