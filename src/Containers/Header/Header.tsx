@@ -37,12 +37,13 @@ const Header = () => {
                         {menuName.map(item => {
                             return (
                                 <Box key={item + 1}>
-                                    <NavLink key={item + 12} to={`/pages/${item.toLowerCase()}`} className="header-link">{item}</NavLink>
+                                    <NavLink key={item + 12} to={`/pages/${item.toLowerCase()}`}
+                                             className="header-link">{item}</NavLink>
                                 </Box>
                             )
                         })}
                         <Box>
-                            <NavLink  to={`/pages/admin`} className="header-link">Admin</NavLink>
+                            <NavLink to={`/pages/admin`} className="header-link">Admin</NavLink>
                         </Box>
                     </Toolbar>
                 </Toolbar>

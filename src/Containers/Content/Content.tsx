@@ -25,7 +25,7 @@ const Content = () => {
             setOpen(false);
         }
 
-    }, [id]);
+    }, [idUpdate]);
 
     useEffect(() => {
         void fetchResponse();
@@ -41,7 +41,6 @@ const Content = () => {
                     </>
                     : null}
             </Box>
-
             {open ? <Preloader/> : null}
         </Container>
     );

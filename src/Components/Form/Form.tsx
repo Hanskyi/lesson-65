@@ -15,7 +15,7 @@ interface Props {
 const Form: React.FC<Props> = (props) => {
     return (
         <>
-            <FormControl fullWidth>
+            <FormControl sx={{width: "500px", gap:'20px'}}>
                 <NativeSelect
                     defaultValue="DefoulOption"
                     onChange={props.selectChange}

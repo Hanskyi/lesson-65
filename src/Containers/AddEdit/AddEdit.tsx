@@ -6,7 +6,6 @@ import {IMenuItem, IMenuUpdate} from "../../type";
 import {useNavigate} from "react-router-dom";
 import Preloader from "../../Components/Preloader/Preloader";
 
-
 const AddEdit = () => {
     const [menuList, setMenuList] = useState<string[]>([]);
     const [selectValue, setSelectValue] = useState<string>('');
@@ -53,7 +52,7 @@ const AddEdit = () => {
     const sendButton = async () => {
         setOpen(true);
         try {
-            await axiosApi.put(`/${selectValue}.json`, inputValue).then(() => navigate(`/pages/${selectValue}`));
+            await axiosApi.put(`/${selectValue}.json`, inputValue).then(() => navigate(`/pages/${selectValue.toLowerCase()}`));
         } finally {
             setOpen(false);
         }
@@ -64,7 +63,7 @@ const AddEdit = () => {
     }, [fetchResponse]);
 
     return (
-        <Container maxWidth="lg" sx={{marginTop: "100px"}}>
+        <Container maxWidth="lg" sx={{marginTop: "100px",display: "flex", justifyContent:"center"}}>
             <Form
                 menuList={menuList}
                 selectChange={selectChange}
